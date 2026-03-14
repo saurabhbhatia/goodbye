@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_message, only: %i[ show edit update destroy ]
-  before_action :set_message_board, only: %i[ edit update new create ]
+  before_action :set_message_board, only: %i[ edit update new create destroy ]
 
   # GET /messages or /messages.json
   def index
@@ -54,7 +54,7 @@ class MessagesController < ApplicationController
     @message.destroy!
 
     respond_to do |format|
-      format.html { redirect_to messages_path, notice: "Message was successfully destroyed.", status: :see_other }
+      format.html { redirect_to message_board_path(@message_board.slug), notice: "Message was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end

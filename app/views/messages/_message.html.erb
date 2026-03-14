@@ -1,4 +1,15 @@
-<div id="<%= dom_id message %>" class="card bg-base-100 shadow-xl overflow-hidden w-full">
+<div id="<%= dom_id message %>" class="card bg-base-100 shadow-xl overflow-hidden w-full relative group">
+  <% if user_signed_in? && current_user.id == message.user_id %>
+    <div class="absolute top-2 right-2 flex gap-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      <%= link_to edit_message_board_message_path(message.message_board_id, message), class: "btn btn-circle btn-sm btn-ghost bg-base-100/70 hover:bg-base-200 shadow-sm" do %>
+        <ion-icon name="pencil" class="text-lg"></ion-icon>
+      <% end %>
+      <%= button_to message_board_message_path(message.message_board_id, message), method: :delete, class: "btn btn-circle btn-sm btn-ghost text-error bg-base-100/70 hover:bg-error hover:text-error-content shadow-sm" do %>
+        <ion-icon name="trash" class="text-lg"></ion-icon>
+      <% end %>
+    </div>
+  <% end %>
+
   <% if message.image.attached? %>
     <figure>
       <%= image_tag message.image, class: "w-full object-cover max-h-64" %>

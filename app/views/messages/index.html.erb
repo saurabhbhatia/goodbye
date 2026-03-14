@@ -8,7 +8,7 @@
   <% @messages.each do |message| %>
     <%= render message %>
     <p>
-      <%= link_to "Show this message", message %>
+      <%= link_to "Show this message", [message.message_board, message] %>
     </p>
   <% end %>
 </div>
