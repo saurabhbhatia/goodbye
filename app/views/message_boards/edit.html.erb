@@ -1,0 +1,12 @@
+<% content_for :title, "Editing message board" %>
+
+<h1>Editing message board</h1>
+
+<%= render "form", message_board: @message_board %>
+
+<br>
+
+<div>
+  <%= link_to "Show this message board", @message_board %> |
+  <%= link_to "Back to message boards", message_boards_path %>
+</div>

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Message boards" %>
+
+<h1>Message boards</h1>
+
+<div id="message_boards">
+  <% @message_boards.each do |message_board| %>
+    <%= render message_board %>
+    <p>
+      <%= link_to "Show this message board", message_board %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New message board", new_message_board_path %>
