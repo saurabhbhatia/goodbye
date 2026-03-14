@@ -1,10 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mx-auto py-8">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @message_board %>
+  <div class="mb-4">
+    <%= render @message_board %>
+  </div>
 
-<div>
-  <%= link_to "Edit this message board", edit_message_board_path(@message_board) %> |
-  <%= link_to "Back to message boards", message_boards_path %>
+  <!--
+  <div class="flex gap-2 mb-10">
+    <%= link_to "Edit this message board", edit_message_board_path(@message_board), class: "btn btn-outline btn-sm" %>
+    <%= link_to "Back to message boards", message_boards_path, class: "btn btn-ghost btn-sm" %>
+    <%= button_to "Destroy this message board", @message_board, method: :delete, class: "btn btn-error btn-sm" %>
+  </div>   -->
 
-  <%= button_to "Destroy this message board", @message_board, method: :delete %>
+
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold">Messages</h2>
+    <%= link_to "New Message", new_message_board_message_path(@message_board), class: "btn btn-primary btn-sm" %>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <% if @messages.present? %>
+      <% @messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    <% else %>
+      <div class="col-span-full py-8 text-center text-base-content/60">
+        No messages on this board yet.
+      </div>
+    <% end %>
+  </div>
+  <%== @pagy.series_nav %>
 </div>

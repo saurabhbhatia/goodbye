@@ -18,6 +18,7 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 gem "devise"
 gem "friendly_id", "~> 5.5.0"
+gem "pagy"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 

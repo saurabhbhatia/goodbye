@@ -1,20 +1,12 @@
-<div id="<%= dom_id message %>" class="flex flex-col gap-3">
-  <div>
-    <h3 class="text-sm font-semibold text-base-content/70 uppercase tracking-wider">User</h3>
-    <p class="text-lg"><%= message.user_id %></p>
-  </div>
-
-  <div>
-    <h3 class="text-sm font-semibold text-base-content/70 uppercase tracking-wider">Body</h3>
-    <div class="bg-base-100 p-4 rounded-lg shadow-inner mt-1">
+<div id="<%= dom_id message %>" class="card bg-base-100 shadow-xl overflow-hidden w-full">
+  <% if message.image.attached? %>
+    <figure>
+      <%= image_tag message.image, class: "w-full object-cover max-h-64" %>
+    </figure>
+  <% end %>
+  <div class="card-body">
+    <div class="prose max-w-none">
       <%= message.body %>
-    </div>
-  </div>
-
-  <div>
-    <h3 class="text-sm font-semibold text-base-content/70 uppercase tracking-wider">Image</h3>
-    <div class="bg-base-100 p-4 rounded-lg shadow-inner mt-1">
-      <%= image_tag message.image %>
     </div>
   </div>
 </div>

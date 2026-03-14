@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: "Message was successfully created." }
+        format.html { redirect_to message_board_path(@message_board), notice: "Message was successfully created." }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
   def update
     respond_to do |format|
       if @message.update(message_params)
-        format.html { redirect_to @message, notice: "Message was successfully updated.", status: :see_other }
+        format.html { redirect_to message_board_path(@message_board), notice: "Message was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @message }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -71,6 +71,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.expect(message: [ :body, :image, :user_id ])
+      params.expect(message: [ :body, :image, :user_id, :message_board_id ])
     end
 end

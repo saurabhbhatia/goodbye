@@ -1,4 +1,4 @@
-<%= form_with(model: message, class: "flex flex-col gap-4") do |form| %>
+<%= form_with(model: [:message_board, message], class: "flex flex-col gap-4") do |form| %>
   <% if message.errors.any? %>
     <div class="alert alert-error shadow-lg">
       <div>
@@ -16,7 +16,7 @@
     <%= form.label :body, class: "label font-semibold" do %>
       <span class="label-text">Body</span>
     <% end %>
-    <%= form.text_area :body, class: "textarea textarea-bordered h-32 w-full focus:textarea-primary" %>
+    <%= form.rich_text_area :body, class: "textarea textarea-bordered h-32 w-full focus:textarea-primary" %>
   </div>
 
   <div class="form-control w-full">

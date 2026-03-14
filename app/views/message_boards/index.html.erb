@@ -2,15 +2,26 @@
 
 <% content_for :title, "Message boards" %>
 
-<h1>Message boards</h1>
+<div class="flex justify-between items-center mb-6 mt-4">
+  <h1 class="text-3xl font-bold">Message boards</h1>
+  <%= link_to "New message board", new_message_board_path, class: "btn btn-primary" %>
+</div>
 
-<div id="message_boards">
+<div id="message_boards" class="grid grid-cols-1 gap-4 mb-8">
   <% @message_boards.each do |message_board| %>
-    <%= render message_board %>
-    <p>
-      <%= link_to "Show this message board", message_board %>
-    </p>
+    <div class="card bg-base-200 shadow-sm p-4 flex flex-row justify-between items-center">
+      <%= render message_board %>
+      <%= link_to "Show", message_board, class: "btn btn-ghost btn-sm" %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New message board", new_message_board_path %>
+<% if defined?(@messages) && @messages %>
+  <div class="divider mt-8">Messages</div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <% @messages.each do |message| %>
+      <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
+<% end %>
+

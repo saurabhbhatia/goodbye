@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :message_boards
-  resources :messages
+  resources :message_boards do
+    resources :messages
+  end
   root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
