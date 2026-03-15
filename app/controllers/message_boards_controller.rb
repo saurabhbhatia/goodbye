@@ -9,7 +9,7 @@ class MessageBoardsController < ApplicationController
 
   # GET /message_boards/1 or /message_boards/1.json
   def show
-    @pagy, @messages = pagy(@message_board.messages)
+    @messages = @message_board.messages
   end
 
   # GET /message_boards/new
