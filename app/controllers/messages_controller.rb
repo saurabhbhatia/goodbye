@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         format.html { redirect_to message_board_path(@message_board), notice: "Message was successfully created." }
-        format.json { render :show, status: :created, location: @message }
+        format.json { render :show, status: :created, location: @message_board }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.update(message_params)
         format.html { redirect_to message_board_path(@message_board), notice: "Message was successfully updated.", status: :see_other }
-        format.json { render :show, status: :ok, location: @message }
+        format.json { render :show, status: :ok, location: @message_board }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @message.errors, status: :unprocessable_entity }

@@ -1,5 +1,5 @@
 <div class="container mx-auto px-4 sm:px-8 py-6 max-w-3xl bg-white text-black rounded-xl shadow-sm">
-  <%= form_with(model: [:message_board, message], class: "flex flex-col gap-4") do |form| %>
+  <%= form_with(model: [@message_board, message], class: "flex flex-col gap-4") do |form| %>
   <% if message.errors.any? %>
     <div class="alert alert-error shadow-lg">
       <div>
