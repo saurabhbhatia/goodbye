@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+#message_body {
+  background-color: white;
+}
