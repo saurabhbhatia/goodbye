@@ -21,7 +21,7 @@ gem "friendly_id", "~> 5.5.0"
 gem "pagy"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-gem "aws-sdk-s3", "~> 1.185", require: false
+gem "aws-sdk-s3", "~> 1.218", require: false
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
